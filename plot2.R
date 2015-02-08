@@ -13,11 +13,13 @@ temp_DateTime<- paste(data_new$Date, data_new$Time, sep="/")
 data_new$DateTime <- strptime(temp_DateTime, "%d/%m/%Y/%H:%M:%S")
 rownames(data_new) <- 1:nrow(data_new)
 
-###### Plot 1. 
+###### Plot 2. 
 
-png(filename = "plot1.png", width = 480, height = 480, units = "px", bg = "transparent")
+png(filename = "plot2.png", width = 480, height = 480, units = "px", bg = "transparent")
 
-hist(as.numeric(data_new$Global_active_power),main="Global Active Power", xlab="Global Active Power(kilowatts)", col="red", breaks=12, ylim=c(0,1200))
-
+plot(data_new$DateTime, data_new$Global_active_power, type="l", xlab="", ylab = "Global Active Power(kilowatts)")
 dev.off()
+
+
+
 
