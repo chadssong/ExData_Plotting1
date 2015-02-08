@@ -1,13 +1,9 @@
 ###### Load Data
 
-setwd("E:/dev_study/r_eda/data")
-
-data <- read.table("project1_household_power_consumption.txt",sep=";", header=T, stringsAsFactors=F)
-
+file <- "./data/project1_household_power_consumption.txt"
+data <- read.table(file ,sep=";", header=T, stringsAsFactors=F)
 slected_data <-  data$Date=="1/2/2007"|data$Date=="2/2/2007"
-
 data_new <- data[slected_data,]
-
 
 temp_DateTime<- paste(data_new$Date, data_new$Time, sep="/")
 data_new$DateTime <- strptime(temp_DateTime, "%d/%m/%Y/%H:%M:%S")
